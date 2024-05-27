@@ -47,6 +47,7 @@ const AuthForm = ({ type }: { type: string }) => {
 
       try {
         // Sign up with Appwrite & create plaid token
+
         if(type === 'sign-up') {
           const userData = {
             firstName: data.firstName!,
@@ -58,7 +59,7 @@ const AuthForm = ({ type }: { type: string }) => {
             dateOfBirth: data.dateOfBirth!,
             ssn: data.ssn!,
             email: data.email,
-            password: data.password,
+            password: data.password
           }
 
           const newUser = await signUp(userData);
@@ -113,7 +114,7 @@ const AuthForm = ({ type }: { type: string }) => {
       </header>
       {user ? (
         <div className="flex flex-col gap-4">
-          <PlaidLink user={user} variant='primary' />
+          <PlaidLink user={user} variant="primary" />
         </div>
       ): (
         <>
@@ -149,7 +150,7 @@ const AuthForm = ({ type }: { type: string }) => {
                       <Loader2 size={20} className="animate-spin" /> &nbsp;
                       Loading...
                     </>
-                  ) : type === 'sign-in'
+                  ) : type === 'sign-in' 
                     ? 'Sign In' : 'Sign Up'}
                 </Button>
               </div>
